@@ -23,7 +23,9 @@ public class AdditemActivity extends AppCompatActivity {
         price = findViewById(R.id.price);
         addbtn = findViewById(R.id.add_btn);
 
-        name.addTextChangedListener(new TextWatcher() {
+
+
+        TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -36,8 +38,11 @@ public class AdditemActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-             addbtn.setEnabled(!TextUtils.isEmpty(s));
+                addbtn.setEnabled(!TextUtils.isEmpty(name.getText()) && !TextUtils.isEmpty(price.getText()));
             }
-        });
+        };
+        name.addTextChangedListener(textWatcher);
+        price.addTextChangedListener(textWatcher);
+
     }
 }
