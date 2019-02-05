@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/name"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/add_item_editText"
         android:layout_marginTop="100dp"
         android:hint="@string/add_item_hint_name"
         android:layout_marginStart="32dp"
@@ -19,7 +19,7 @@
     <EditText
         android:id="@+id/price"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/add_item_editText"
         android:layout_marginTop="16dp"
         android:hint="@string/add_item_hint_price"
         android:inputType="number"
@@ -40,7 +40,7 @@
         android:enabled="false"
         android:textColor="@color/color_btn_add"
         android:text="@string/add_item_button_add"
-        android:textSize="18sp"
+        android:textSize="@dimen/add_item_button"
          />
 
 </LinearLayout>
