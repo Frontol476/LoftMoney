@@ -13,7 +13,6 @@ public class BalanceFragment extends Fragment {
     public static BalanceFragment newInstances(int type) {
         BalanceFragment fragment = new BalanceFragment();
         return fragment;
-
     }
 
     public static final int TYPE_BALANCE = 3;

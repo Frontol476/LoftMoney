@@ -53,6 +53,7 @@ public class ItemsFragment extends Fragment {
 
         type = getArguments().getInt(KEY_TYPE, TYPE_UNKNOW);
 
+
         if (type == TYPE_UNKNOW) {
             throw new IllegalStateException("Unknow fragment type");
         }

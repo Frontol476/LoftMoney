@@ -37,9 +37,7 @@ public class MainPagesAdapter extends FragmentPagerAdapter {
              default:
                  return  new ItemsFragment();
         }
-
     }
-
     @Override
     public int getCount() {
 

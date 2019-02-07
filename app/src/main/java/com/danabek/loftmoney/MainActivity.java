@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         MainPagesAdapter adapter = new MainPagesAdapter(getSupportFragmentManager(),this);
         pager = findViewById(R.id.pager);
         tabs = findViewById(R.id.tabs);
-
         tabs.setupWithViewPager(pager);
         pager.setAdapter(adapter);
     }

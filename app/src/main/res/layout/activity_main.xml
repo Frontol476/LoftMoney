@@ -10,11 +10,12 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/perrywinkle_70"
         android:background="@color/colorPrimary"
         app:tabBackground="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
     </com.google.android.material.tabs.TabLayout>
 
