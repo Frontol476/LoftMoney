@@ -5,5 +5,8 @@
     <string name="add_item_hint_name">Название</string>
     <string name="add_item_hint_price">Цена</string>
     <string name="add_item_button_add">Добавить</string>
-
+//Activity main Tabs
+    <string name="main_tab_incomes">Доходы</string>
+    <string name="main_tab_expenses">Расходы</string>
+    <string name="main_tab_balance">Баланс</string>
 </resources>

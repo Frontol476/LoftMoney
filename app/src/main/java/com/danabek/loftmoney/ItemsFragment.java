@@ -2,6 +2,7 @@ package com.danabek.loftmoney;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,25 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class ItemsFragment extends Fragment {
 
+    public static ItemsFragment newInstances(int type) {
+        ItemsFragment fragment = new ItemsFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(ItemsFragment.KEY_TYPE,ItemsFragment.TYPE_INCOMES);
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
+
+    public static final int TYPE_UNKNOW =0;
+    public static final int TYPE_INCOMES =1;
+    public static final int TYPE_EXPENSES =2;
+    public static final int TYPE_BALANCE = 3;
+
+    public  static  final String KEY_TYPE = "type";
+
     private ItemsAdapter adapter;
+    private int type;
 
     public ItemsFragment() {
         // Required empty public constructor
@@ -31,6 +50,15 @@ public class ItemsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new ItemsAdapter(requireContext());
+
+        type = getArguments().getInt(KEY_TYPE, TYPE_UNKNOW);
+
+        if (type == TYPE_UNKNOW) {
+            throw new IllegalStateException("Unknow fragment type");
+        }
+
+
+        Log.d("ItemsFragment","type= "+type);
     }
 
     @Override
