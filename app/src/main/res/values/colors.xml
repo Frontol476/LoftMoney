@@ -2,13 +2,16 @@
 <resources>
     <color name="colorPrimary">#3574fa</color>
     <color name="colorPrimaryDark">#224AA3</color>
-    <color name="colorAccent">#3574fa</color>
+    <color name="colorAccent">#ffc107</color>
     <color name="btn_enabled">#7ed321</color>
     <color name="btn_disabled">#eaeaea</color>
 
     <color name="white">#ffffff</color>
+    <color name="perrywinkle_70">#b38baaef</color>
     
     
     <color name="medium_gray">#666664</color>
     <color name="dark_sky_blue">#4a90e2</color>
+
+    <color name="marigold">#ffc107</color>
 </resources>
