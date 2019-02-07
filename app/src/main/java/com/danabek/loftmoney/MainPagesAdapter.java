@@ -1,29 +1,30 @@
 package com.danabek.loftmoney;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 public class MainPagesAdapter extends FragmentPagerAdapter {
-
-
-    public MainPagesAdapter(FragmentManager fm) {
+    public MainPagesAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        if (position ==0) {
+        if (position == 0 ) {
             return new ItemsFragment();
-        } else if (position == 1) {
+        }else if (position == 1) {
             return new ItemsFragment();
-        } else {
+        }else {
             return new ItemsFragment();
         }
     }
 
     @Override
     public int getCount() {
+
         return 2;
     }
 }
