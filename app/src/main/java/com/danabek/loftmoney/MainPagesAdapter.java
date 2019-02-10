@@ -1,5 +1,6 @@
 package com.danabek.loftmoney;
 
+
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -29,9 +30,9 @@ public class MainPagesAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case PAGE_INCOMES:
-                return ItemsFragment.newInstances(ItemsFragment.TYPE_INCOMES);
+                return ItemsFragment.newInstances(ItemPosition.TYPE_INCOME);
             case PAGE_EXPENSES:
-                return ItemsFragment.newInstances(ItemsFragment.TYPE_EXPENSES);
+                return ItemsFragment.newInstances(ItemPosition.TYPE_EXPENSE);
             case PAGE_BALANCE:
                 return BalanceFragment.newInstances(BalanceFragment.TYPE_BALANCE);
             default:

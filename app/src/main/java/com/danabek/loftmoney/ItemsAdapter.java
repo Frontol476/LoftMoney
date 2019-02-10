@@ -27,6 +27,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
     public void setItems(List<ItemPosition> items) {
 
         this.items = items;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -47,7 +48,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
 
     @Override
     public int getItemCount() {
-
         return items.size();
     }
 
@@ -64,7 +64,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
 
         public void bindItem(ItemPosition item) {
             name.setText(item.getName());
-            price.setText(item.getPrice());
+            price.setText(String.valueOf(item.getPrice()));
         }
 
     }
