@@ -3,14 +3,11 @@ package com.danabek.loftmoney;
 
 import android.app.Application;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.IOException;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -20,6 +17,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
@@ -86,45 +84,60 @@ public class ItemsFragment extends Fragment {
     }
 
     private void loadItems() {
-        new LoadItemsTask().start();
+    //    new LoadItemsTask().start();
+        Call call = api.getItems(type,token);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                List<ItemPosition> items = (List<ItemPosition>) response.body();
+                adapter.setItems(items);
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e(TAG,"LoadItems: ",t);
+            }
+        });
     }
 
-    private class LoadItemsTask implements Runnable, Handler.Callback {
-        private Thread thread;
-        private Handler handler;
 
-        public LoadItemsTask() {
-            thread = new Thread(this);
-            handler = new Handler(this);
-        }
 
-        public void start() {
-            thread.start();
-        }
-
-        @Override
-        public void run() {
-            Call call = api.getItems(type, token);
-            try {
-                Response<List<ItemPosition>> response = call.execute();
-                List<ItemPosition> items = response.body();
-                Message message = handler.obtainMessage(111,items);
-                message.sendToTarget();
-                adapter.setItems(items);
-            } catch (IOException e) {
-                Log.e(TAG,"LoadItems: ",e);
-            }
-        }
-
-        @Override
-        public boolean handleMessage(Message msg) {
-            if (msg.what == 111) {
-                List<ItemPosition> items = (List<ItemPosition>) msg.obj;
-                adapter.setItems(items);
-                return  true;
-            }
-            return false;
-        }
-    }
+//    private class LoadItemsTask implements Runnable, Handler.Callback {
+//        private Thread thread;
+//        private Handler handler;
+//
+//        public LoadItemsTask() {
+//            thread = new Thread(this);
+//            handler = new Handler(this);
+//        }
+//
+//        public void start() {
+//            thread.start();
+//        }
+//
+//        @Override
+//        public void run() {
+//            Call call = api.getItems(type, token);
+//            try {
+//                Response<List<ItemPosition>> response = call.execute();
+//                List<ItemPosition> items = response.body();
+//                Message message = handler.obtainMessage(111,items);
+//                message.sendToTarget();
+//                adapter.setItems(items);
+//            } catch (IOException e) {
+//                Log.e(TAG,"LoadItems: ",e);
+//            }
+//        }
+//
+//        @Override
+//        public boolean handleMessage(Message msg) {
+//            if (msg.what == 111) {
+//                List<ItemPosition> items = (List<ItemPosition>) msg.obj;
+//                adapter.setItems(items);
+//                return  true;
+//            }
+//            return false;
+//        }
+//    }
 
 }
