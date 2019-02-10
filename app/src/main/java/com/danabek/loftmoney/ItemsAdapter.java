@@ -16,12 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
 
-   private Context context;
+    private Context context;
 
     public ItemsAdapter(Context context) {
         this.context = context;
     }
-    private  List<ItemPosition> items = Collections.emptyList();
+
+    private List<ItemPosition> items = Collections.emptyList();
+
     public void setItems(List<ItemPosition> items) {
 
         this.items = items;
@@ -31,15 +33,15 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.item_position,parent,false);
+        View view = inflater.inflate(R.layout.item_position, parent, false);
 
         return new ItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-          ItemPosition item = items.get(position);
-          holder.bindItem(item);
+        ItemPosition item = items.get(position);
+        holder.bindItem(item);
 
     }
 
@@ -50,8 +52,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
     }
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {
-     private TextView name;
-     private TextView price;
+        private TextView name;
+        private TextView price;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,7 +61,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
             price = itemView.findViewById(R.id.price);
 
         }
-        public void bindItem (ItemPosition item) {
+
+        public void bindItem(ItemPosition item) {
             name.setText(item.getName());
             price.setText(item.getPrice());
         }

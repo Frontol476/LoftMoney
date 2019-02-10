@@ -34,10 +34,11 @@ public class MainPagesAdapter extends FragmentPagerAdapter {
                 return ItemsFragment.newInstances(ItemsFragment.TYPE_EXPENSES);
             case PAGE_BALANCE:
                 return BalanceFragment.newInstances(BalanceFragment.TYPE_BALANCE);
-             default:
-                 return  new ItemsFragment();
+            default:
+                return new ItemsFragment();
         }
     }
+
     @Override
     public int getCount() {
 

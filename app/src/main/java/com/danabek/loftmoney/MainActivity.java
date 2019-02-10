@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ViewPager pager ;
+    private ViewPager pager;
     private TabLayout tabs;
 
     @Override
@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("MainActivity","OnCreate");
+        Log.d("MainActivity", "OnCreate");
 
-        MainPagesAdapter adapter = new MainPagesAdapter(getSupportFragmentManager(),this);
+        MainPagesAdapter adapter = new MainPagesAdapter(getSupportFragmentManager(), this);
         pager = findViewById(R.id.pager);
         tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(pager);
@@ -30,6 +30,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("MainActivity","OnDestroy");
+        Log.d("MainActivity", "OnDestroy");
     }
 }

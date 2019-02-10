@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
     android:paddingStart="24dp"
-    android:paddingEnd="24dp"
     android:paddingTop="28dp"
-    android:paddingBottom="28dp"
-    android:orientation="horizontal">
-    
+    android:paddingEnd="24dp"
+    android:paddingBottom="28dp">
+
     <TextView
         android:id="@+id/name"
-        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:textColor="@color/medium_gray"
         android:textSize="@dimen/item_position_textView"
-        android:layout_weight="1"
-        tools:text="Milk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textStyle="bold"
+        tools:text="Milk" />
+
     <TextView
         android:id="@+id/price"
-        android:layout_marginStart="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_weight="0"
         android:textColor="@color/dark_sky_blue"
         android:textSize="@dimen/item_position_textView"
-        android:layout_weight="0"
-        tools:text="1 000 000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        tools:text="1 000 000" />
 
 </LinearLayout>
