@@ -1,5 +1,6 @@
 package com.danabek.loftmoney;
 
+
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -9,8 +10,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 public class MainPagesAdapter extends FragmentPagerAdapter {
-    private static final int PAGE_INCOMES = 0;
-    private static final int PAGE_EXPENSES = 1;
+    private static final int PAGE_EXPENSES = 0;
+    private static final int PAGE_INCOMES = 1;
     private static final int PAGE_BALANCE = 2;
     private static final int PAGE_COUNT = 3;
 
@@ -29,15 +30,16 @@ public class MainPagesAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case PAGE_INCOMES:
-                return ItemsFragment.newInstances(ItemsFragment.TYPE_INCOMES);
+                return ItemsFragment.newInstances(ItemPosition.TYPE_INCOME);
             case PAGE_EXPENSES:
-                return ItemsFragment.newInstances(ItemsFragment.TYPE_EXPENSES);
+                return ItemsFragment.newInstances(ItemPosition.TYPE_EXPENSE);
             case PAGE_BALANCE:
                 return BalanceFragment.newInstances(BalanceFragment.TYPE_BALANCE);
-             default:
-                 return  new ItemsFragment();
+            default:
+                return new ItemsFragment();
         }
     }
+
     @Override
     public int getCount() {
 

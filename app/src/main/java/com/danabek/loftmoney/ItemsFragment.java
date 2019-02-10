@@ -1,13 +1,13 @@
 package com.danabek.loftmoney;
 
 
+import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -16,6 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -23,43 +28,38 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class ItemsFragment extends Fragment {
 
-    public static ItemsFragment newInstances(int type) {
+    public static ItemsFragment newInstances(String type) {
         ItemsFragment fragment = new ItemsFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putInt(ItemsFragment.KEY_TYPE,ItemsFragment.TYPE_INCOMES);
+        bundle.putString(KEY_TYPE, type);
         fragment.setArguments(bundle);
 
         return fragment;
     }
 
-    public static final int TYPE_UNKNOW =0;
-    public static final int TYPE_INCOMES =1;
-    public static final int TYPE_EXPENSES =2;
-    public static final int TYPE_BALANCE = 3;
 
-    public  static  final String KEY_TYPE = "type";
+    public static final String KEY_TYPE = "type";
+    private String token = "$2y$10$MI9aJHOPZNR1WLHMPoRkx.6geJcwuzU/JxArRxeOoK9KXyPs3DzfG";
+
 
     private ItemsAdapter adapter;
-    private int type;
+    private String type;
+    private Api api;
 
     public ItemsFragment() {
         // Required empty public constructor
     }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new ItemsAdapter(requireContext());
 
-        type = getArguments().getInt(KEY_TYPE, TYPE_UNKNOW);
-
-
-        if (type == TYPE_UNKNOW) {
-            throw new IllegalStateException("Unknow fragment type");
-        }
-
-
-        Log.d("ItemsFragment","type= "+type);
+        type = getArguments().getString(KEY_TYPE);
+        Application application = getActivity().getApplication();
+        App app = (App) application;
+        api = app.getApi();
     }
 
     @Override
@@ -77,24 +77,28 @@ public class ItemsFragment extends Fragment {
 
         //Add devider
         RecyclerView.LayoutManager layoutManager = (new LinearLayoutManager(requireContext()));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycler.getContext(),((LinearLayoutManager) layoutManager).getOrientation());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycler.getContext(), ((LinearLayoutManager) layoutManager).getOrientation());
         recycler.addItemDecoration(dividerItemDecoration);
 
-        adapter.setItems(createTempItems());
+        loadItems();
     }
 
-   private List<ItemPosition> createTempItems(){
-       List<ItemPosition> items = new ArrayList<>();
-       items.add(new ItemPosition("Milk","230"));
-       items.add(new ItemPosition("bread","50"));
-       items.add(new ItemPosition("juicy","280"));
-       items.add(new ItemPosition("pan","3500"));
-       items.add(new ItemPosition("cat","50000"));
-       items.add(new ItemPosition("bird","180"));
-       items.add(new ItemPosition("Car","180"));
-       items.add(new ItemPosition("MobilePhone","180"));
-       items.add(new ItemPosition("laptop","180"));
+    private void loadItems() {
+        //    new LoadItemsTask().start();
+        Call call = api.getItems(type, token);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                List<ItemPosition> items = (List<ItemPosition>) response.body();
+                adapter.setItems(items);
+            }
 
-       return items;
-   }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e(TAG, "LoadItems: ", t);
+            }
+        });
+    }
+
+
 }

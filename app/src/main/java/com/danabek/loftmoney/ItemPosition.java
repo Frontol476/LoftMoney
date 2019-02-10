@@ -1,20 +1,29 @@
 package com.danabek.loftmoney;
 
 public class ItemPosition {
-    private String name;
-    private String price;
+    public static final String TYPE_INCOME = "income";
+    public static final String TYPE_EXPENSE = "expense";
 
-    public ItemPosition(String name, String price) {
+    private String name;
+    private Double price;
+    private String type;
+
+
+    public ItemPosition(String name, Double price, String type) {
         this.name = name;
         this.price = price;
+        this.type = type;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
+    public String getType() {
+        return type;
+    }
 }

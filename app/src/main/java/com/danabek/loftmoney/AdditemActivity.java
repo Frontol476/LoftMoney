@@ -25,7 +25,6 @@ public class AdditemActivity extends AppCompatActivity {
         addbtn = findViewById(R.id.add_btn);
 
 
-
         TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
