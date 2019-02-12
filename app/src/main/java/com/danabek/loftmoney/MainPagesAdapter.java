@@ -10,10 +10,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 public class MainPagesAdapter extends FragmentPagerAdapter {
-    private static final int PAGE_EXPENSES = 0;
-    private static final int PAGE_INCOMES = 1;
-    private static final int PAGE_BALANCE = 2;
-    private static final int PAGE_COUNT = 3;
+     static final int PAGE_EXPENSES = 0;
+     static final int PAGE_INCOMES = 1;
+     static final int PAGE_BALANCE = 2;
+     static final int PAGE_COUNT = 3;
 
     private Context context;
 

@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 
 public class BalanceFragment extends Fragment {
     public static BalanceFragment newInstances(int type) {
+        Bundle args = new Bundle();
         BalanceFragment fragment = new BalanceFragment();
+        fragment.setArguments(args);
         return fragment;
     }
 
