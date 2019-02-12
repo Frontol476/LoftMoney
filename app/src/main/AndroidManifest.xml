@@ -20,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdditemActivity"></activity>
+        <activity android:name=".AdditemActivity" android:theme="@style/AddItemTheme">
+
+        </activity>
     </application>
 
 </manifest>
