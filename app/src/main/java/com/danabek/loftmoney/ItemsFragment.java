@@ -128,7 +128,6 @@ public class ItemsFragment extends Fragment {
             if (data != null) {
                 String name = data.getStringExtra(AdditemActivity.KEY_NAME);
                 String price = data.getStringExtra(AdditemActivity.KEY_PRICE);
-
                 Log.d(TAG, "onFragmetResult = " + name);
                 Log.d(TAG, "onFragmentResult = " + price);
                 ItemPosition item = new ItemPosition(name,Double.valueOf(price),type);
