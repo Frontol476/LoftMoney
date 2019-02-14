@@ -30,12 +30,16 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         notifyDataSetChanged();
     }
 
+    public void addItem(ItemPosition item) {
+        this.items.add(item);
+        notifyItemInserted(items.size());
+    }
+
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_position, parent, false);
-
         return new ItemViewHolder(view);
     }
 

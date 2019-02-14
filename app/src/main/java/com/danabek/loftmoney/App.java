@@ -32,6 +32,7 @@ public class App extends Application {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://loftschool.com/android-api/basic/v1/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
                 .build();
         api = retrofit.create(Api.class);
     }
