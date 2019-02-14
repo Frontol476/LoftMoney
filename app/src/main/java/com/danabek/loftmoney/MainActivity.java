@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabs;
     private Toolbar toolbar;
     private FloatingActionButton fab;
-    private int ADD_ITEM_REQUEST_CODE=111;
+    private int ADD_ITEM_REQUEST_CODE = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            List<Fragment> fragments = getSupportFragmentManager().getFragments();
-            for (Fragment fragment : fragments){
-                if (fragment instanceof ItemsFragment && fragment.getUserVisibleHint()) {
-                    ((ItemsFragment) fragment).onFabClick();
+                List<Fragment> fragments = getSupportFragmentManager().getFragments();
+                for (Fragment fragment : fragments) {
+                    if (fragment instanceof ItemsFragment && fragment.getUserVisibleHint()) {
+                        ((ItemsFragment) fragment).onFabClick();
 
+                    }
                 }
-            }
 
 
             }
@@ -59,17 +59,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d("MainActivity", "OnDestroy");
     }
 
-    private class PageChangeListener extends ViewPager.SimpleOnPageChangeListener{
+    private class PageChangeListener extends ViewPager.SimpleOnPageChangeListener {
         @Override
         public void onPageSelected(int position) {
-            switch (position){
+            switch (position) {
                 case MainPagesAdapter.PAGE_INCOMES:
                 case MainPagesAdapter.PAGE_EXPENSES:
                     fab.show();

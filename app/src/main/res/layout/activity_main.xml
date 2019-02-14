@@ -11,13 +11,14 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
-            app:layout_scrollFlags="scroll|snap"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
             android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
+            app:layout_scrollFlags="scroll|snap">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -28,27 +29,25 @@
             android:background="@color/colorPrimary"
             app:tabBackground="@color/colorPrimary"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/perrywinkle_70">
-        </com.google.android.material.tabs.TabLayout>
+            app:tabTextColor="@color/perrywinkle_70"></com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></androidx.viewpager.widget.ViewPager>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:src="@drawable/ic_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="28dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:src="@drawable/ic_add" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

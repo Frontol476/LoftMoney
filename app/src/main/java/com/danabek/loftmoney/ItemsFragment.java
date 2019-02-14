@@ -130,7 +130,7 @@ public class ItemsFragment extends Fragment {
                 String price = data.getStringExtra(AdditemActivity.KEY_PRICE);
                 Log.d(TAG, "onFragmetResult = " + name);
                 Log.d(TAG, "onFragmentResult = " + price);
-                ItemPosition item = new ItemPosition(name,Double.valueOf(price),type);
+                ItemPosition item = new ItemPosition(name, Double.valueOf(price), type);
                 adapter.addItem(item);
             }
         } else {

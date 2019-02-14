@@ -36,9 +36,9 @@ public class AdditemActivity extends AppCompatActivity {
 
                 String nameText = name.getText().toString();
                 String priceText = price.getText().toString();
-                intent.putExtra(KEY_NAME,nameText);
-                intent.putExtra(KEY_PRICE,priceText);
-                setResult(Activity.RESULT_OK,intent);
+                intent.putExtra(KEY_NAME, nameText);
+                intent.putExtra(KEY_PRICE, priceText);
+                setResult(Activity.RESULT_OK, intent);
                 finish();
             }
         });

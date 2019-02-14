@@ -29,10 +29,12 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         this.items = items;
         notifyDataSetChanged();
     }
+
     public void addItem(ItemPosition item) {
         this.items.add(item);
         notifyItemInserted(items.size());
     }
+
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
