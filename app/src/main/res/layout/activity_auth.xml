@@ -25,12 +25,12 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/enter_btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:background="@color/white"
         android:text="@string/auth_enter"
         android:textColor="@color/colorPrimary"
-        android:textSize="14dp"
+        android:textSize="14sp"
         app:backgroundTint="@color/white"
         app:cornerRadius="24dp" />
 </LinearLayout>

@@ -103,7 +103,7 @@ public class ItemsFragment extends Fragment {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         String token = preferences.getString("auth_token", null);
 
-        Call call = api.getItems(type, token);
+        Call<List<ItemPosition>> call  = api.getItems(type, token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
