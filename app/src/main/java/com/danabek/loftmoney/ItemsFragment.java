@@ -104,7 +104,7 @@ public class ItemsFragment extends Fragment {
         String token = preferences.getString("auth_token", null);
 
         Call<List<ItemPosition>> call  = api.getItems(type, token);
-        call.enqueue(new Callback() {
+        call.enqueue(new Callback <List<ItemPosition>> () {
             @Override
             public void onResponse(Call call, Response response) {
                 refresh.setRefreshing(false);

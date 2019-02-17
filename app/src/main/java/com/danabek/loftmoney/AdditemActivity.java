@@ -77,7 +77,7 @@ public class AdditemActivity extends AppCompatActivity {
         AddItemRequest request = new AddItemRequest(Double.valueOf(price), name, type);
 
         Call<Object> call = api.addItem(request, token);
-        call.enqueue(new Callback() {
+        call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call call, Response response) {
                 setResult(Activity.RESULT_OK);
