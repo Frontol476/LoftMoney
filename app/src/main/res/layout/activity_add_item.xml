@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,10 +10,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/add_item_hint_name"
         android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="32dp">
+        android:layout_marginEnd="32dp"
+        android:hint="@string/add_item_hint_name">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -24,10 +26,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/add_item_hint_price"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp">
+        android:layout_marginEnd="32dp"
+        android:hint="@string/add_item_hint_price">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/price"
             android:layout_width="match_parent"
@@ -38,18 +41,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/add_btn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"
         android:background="@null"
-        android:drawableStart="@drawable/ic_check"
         android:drawablePadding="8dp"
         android:enabled="false"
         android:text="@string/add_item_button_add"
         android:textColor="@color/color_btn_add"
-        android:textSize="@dimen/add_item_button" />
-
+        android:textSize="@dimen/add_item_button"
+        app:icon="@drawable/ic_check"
+        app:iconTint="@color/color_btn_add" />
 </LinearLayout>
