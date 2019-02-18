@@ -3,6 +3,6 @@
     <dimen name="item_position_textView">20sp</dimen>
     <dimen name="add_item_editText">24sp</dimen>
     <dimen name="add_item_button">18sp</dimen>
-
-
+    //AuthActivity
+    <dimen name="app_name_text_view">36sp</dimen>
 </resources>

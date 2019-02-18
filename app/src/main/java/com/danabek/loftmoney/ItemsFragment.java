@@ -4,7 +4,9 @@ package com.danabek.loftmoney;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,9 +100,11 @@ public class ItemsFragment extends Fragment {
     }
 
     private void loadItems() {
-        //    new LoadItemsTask().start();
-        Call call = api.getItems(type, token);
-        call.enqueue(new Callback() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+        String token = preferences.getString("auth_token", null);
+
+        Call<List<ItemPosition>> call  = api.getItems(type, token);
+        call.enqueue(new Callback <List<ItemPosition>> () {
             @Override
             public void onResponse(Call call, Response response) {
                 refresh.setRefreshing(false);
@@ -118,6 +122,7 @@ public class ItemsFragment extends Fragment {
 
     void onFabClick() {
         Intent intent = new Intent(requireContext(), AdditemActivity.class);
+        intent.putExtra(AdditemActivity.KEY_TYPE, type);
         startActivityForResult(intent, ADD_ITEM_REQUEST_CODE);
     }
 
@@ -125,14 +130,7 @@ public class ItemsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_ITEM_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            if (data != null) {
-                String name = data.getStringExtra(AdditemActivity.KEY_NAME);
-                String price = data.getStringExtra(AdditemActivity.KEY_PRICE);
-                Log.d(TAG, "onFragmetResult = " + name);
-                Log.d(TAG, "onFragmentResult = " + price);
-                ItemPosition item = new ItemPosition(name, Double.valueOf(price), type);
-                adapter.addItem(item);
-            }
+            loadItems();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
