@@ -79,13 +79,13 @@ public class AdditemActivity extends AppCompatActivity {
         Call<Object> call = api.addItem(request, token);
         call.enqueue(new Callback<Object>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<Object> call, Response<Object> response) {
                 setResult(Activity.RESULT_OK);
                 finish();
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<Object> call, Throwable t) {
                 setResult(Activity.RESULT_CANCELED);
                 finish();
             }

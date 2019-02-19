@@ -103,17 +103,17 @@ public class ItemsFragment extends Fragment {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         String token = preferences.getString("auth_token", null);
 
-        Call<List<ItemPosition>> call  = api.getItems(type, token);
-        call.enqueue(new Callback <List<ItemPosition>> () {
+        Call<List<ItemPosition>> call = api.getItems(type, token);
+        call.enqueue(new Callback<List<ItemPosition>>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<List<ItemPosition>> call, Response<List<ItemPosition>> response) {
                 refresh.setRefreshing(false);
                 List<ItemPosition> items = (List<ItemPosition>) response.body();
                 adapter.setItems(items);
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<List<ItemPosition>> call, Throwable t) {
                 refresh.setRefreshing(false);
                 Log.e(TAG, "LoadItems: ", t);
             }
