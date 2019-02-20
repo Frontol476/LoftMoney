@@ -72,6 +72,7 @@ public class ItemsFragment extends Fragment {
         Application application = getActivity().getApplication();
         App app = (App) application;
         api = app.getApi();
+
     }
 
     @Override
@@ -161,13 +162,14 @@ public class ItemsFragment extends Fragment {
     }
 
     private class AdapterListener implements ItemsAdapterListener {
-
         @Override
         public void onItemClick(ItemPosition item, int position) {
             Log.i(TAG, "onItemClick: " + item.getName());
             if (actionMode == null) {
                 return;
             }
+            //  int selectedCount = adapter.getSelectedPositions().size();
+            // actionMode.setTitle("Выбрано "+String.valueOf(selectedCount));
             toggleItem(position);
         }
 
@@ -178,8 +180,11 @@ public class ItemsFragment extends Fragment {
                 return;
             }
             getActivity().startActionMode(new ActionModeCallBack());
+            //  int selectedCount = adapter.getSelectedPositions().size();
+            // actionMode.setTitle("Выбрано " + String.valueOf(selectedCount));
             toggleItem(position);
         }
+
 
         private void toggleItem(int position) {
             adapter.toggleItem(position);
