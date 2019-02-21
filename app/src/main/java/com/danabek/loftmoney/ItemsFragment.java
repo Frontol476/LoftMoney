@@ -180,14 +180,13 @@ public class ItemsFragment extends Fragment {
                 return;
             }
             getActivity().startActionMode(new ActionModeCallBack());
-            //  int selectedCount = adapter.getSelectedPositions().size();
-            // actionMode.setTitle("Выбрано " + String.valueOf(selectedCount));
             toggleItem(position);
         }
 
-
         private void toggleItem(int position) {
             adapter.toggleItem(position);
+            int selectedCount = adapter.getSelectedPositions().size();
+            actionMode.setTitle(getString(R.string.selected_message) + " " + String.valueOf(selectedCount));
         }
     }
 
