@@ -168,8 +168,6 @@ public class ItemsFragment extends Fragment {
             if (actionMode == null) {
                 return;
             }
-            //  int selectedCount = adapter.getSelectedPositions().size();
-            // actionMode.setTitle("Выбрано "+String.valueOf(selectedCount));
             toggleItem(position);
         }
 
