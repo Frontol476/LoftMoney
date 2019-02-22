@@ -52,7 +52,6 @@ public class ItemsFragment extends Fragment {
 
 
     public static final String KEY_TYPE = "type";
-    private String token = "$2y$10$MI9aJHOPZNR1WLHMPoRkx.6geJcwuzU/JxArRxeOoK9KXyPs3DzfG";
     private SwipeRefreshLayout refresh;
     private ActionMode actionMode;
     private ItemsAdapter adapter;
@@ -115,7 +114,7 @@ public class ItemsFragment extends Fragment {
             @Override
             public void onResponse(Call<List<ItemPosition>> call, Response<List<ItemPosition>> response) {
                 refresh.setRefreshing(false);
-                List<ItemPosition> items = (List<ItemPosition>) response.body();
+                List<ItemPosition> items = response.body();
                 adapter.setItems(items);
             }
 
