@@ -5,4 +5,6 @@
     <dimen name="add_item_button">18sp</dimen>
     //AuthActivity
     <dimen name="app_name_text_view">36sp</dimen>
+    //ActionMode
+    <dimen name="action_mode_text_size">20sp</dimen>
 </resources>

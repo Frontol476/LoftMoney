@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/dark_grey_blue</item>
+        <item name="actionModeStyle">@style/action_mode_style</item>
     </style>
 
     <style name="AddItemTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -22,4 +25,12 @@
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
+    <style name="action_mode_style" parent="Base.Widget.AppCompat.ActionBar">
+        <item name="background">@color/dark_grey_blue</item>
+        <item name="titleTextStyle">@style/action_mode_text_style</item>
+    </style>
+
+    <style name="action_mode_text_style" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/action_mode_text_size</item>
+    </style>
 </resources>
