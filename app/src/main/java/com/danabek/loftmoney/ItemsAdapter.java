@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -88,6 +89,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         ItemPosition item = items.get(position);
         holder.bindItem(item, selectedItems.get(position));
+        holder.setColorItem(item.getType());
         holder.setListener(item, listener, position);
     }
 
@@ -104,13 +106,19 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
             super(itemView);
             name = itemView.findViewById(R.id.name);
             price = itemView.findViewById(R.id.price);
-
         }
 
         public void bindItem(ItemPosition item, boolean selected) {
             name.setText(item.getName());
             price.setText(String.valueOf(item.getPrice()));
             itemView.setSelected(selected);
+        }
+
+        public void setColorItem(String type) {
+
+            price.setTextColor(type.equals(ItemPosition.TYPE_INCOME) ? (ContextCompat.getColor(context, R.color.income_color))
+                                                                     : (ContextCompat.getColor(context, R.color.expense_color)));
+
         }
 
         void setListener(ItemPosition item, ItemsAdapterListener listener, int position) {
