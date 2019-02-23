@@ -39,6 +39,7 @@ public class DiagramView extends View {
     public void update(int income, int expense) {
         this.income = income;
         this.expense = expense;
+        invalidate();
     }
 
     @Override
