@@ -7,4 +7,14 @@
     <dimen name="app_name_text_view">36sp</dimen>
     //ActionMode
     <dimen name="action_mode_text_size">20sp</dimen>
+    //BalanceFragment
+    <dimen name="balance_title">14sp</dimen>
+    <dimen name="balance_value">48sp</dimen>
+    <dimen name="income_title">12sp</dimen>
+    <dimen name="income_value">24sp</dimen>
+    <dimen name="expense_title">12sp</dimen>
+    <dimen name="expense_value">24sp</dimen>
+
+    <dimen name="balance_linear_padding_startEnd">16dp</dimen>
+    <dimen name="balance_linear_padding_TopBottom">32dp</dimen>
 </resources>

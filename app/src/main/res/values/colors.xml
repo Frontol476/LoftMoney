@@ -19,4 +19,10 @@
 
     <color name="item_backgroud_color_selected">#f2f2f2</color>
     <color name="item_backgroud_color_default">#ffffff</color>
+
+    //BalanceFragment
+    <color name="expense_color">#4a90e2</color>
+    <color name="income_color">#7ed321</color>
+    <color name="balance_color">#ff9e57</color>
+    <color name="divider">#efefef</color>
 </resources>
