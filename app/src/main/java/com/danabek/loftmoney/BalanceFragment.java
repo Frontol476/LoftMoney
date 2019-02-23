@@ -69,10 +69,9 @@ public class BalanceFragment extends Fragment {
                 BalanceResponse balanceResponse = response.body();
                 int balance = balanceResponse.getTotalIncome() - balanceResponse.getTotalExpense();
 
-                balanceView.setText(String.valueOf(balance));
-                expenseView.setText(String.valueOf(balanceResponse.getTotalExpense()));
-                incomeView.setText(String.valueOf(balanceResponse.getTotalIncome()));
-
+                balanceView.setText(getString(R.string.balance_fragment_count, balance));
+                expenseView.setText(getString(R.string.balance_fragment_count, balanceResponse.getTotalExpense()));
+                incomeView.setText(getString(R.string.balance_fragment_count, balanceResponse.getTotalIncome()));
                 diagramView.update(balanceResponse.getTotalIncome(), balanceResponse.getTotalExpense());
             }
 

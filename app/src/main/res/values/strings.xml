@@ -23,4 +23,8 @@
     <string name="diagram_balance_title">Доступные финансы</string>
     <string name="diagram_expense_title">Расход</string>
     <string name="diagram_income_title">Доход</string>
+
+    //RUS Currency
+    <string name="count">%1$s \u20bd</string>
+    <string name="balance_fragment_count">%1$d \u20bd</string>
 </resources>

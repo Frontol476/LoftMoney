@@ -109,8 +109,9 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         }
 
         public void bindItem(ItemPosition item, boolean selected) {
+
             name.setText(item.getName());
-            price.setText(String.valueOf(item.getPrice()));
+            price.setText(context.getString(R.string.count, String.valueOf(item.getPrice())));
             itemView.setSelected(selected);
         }
 
