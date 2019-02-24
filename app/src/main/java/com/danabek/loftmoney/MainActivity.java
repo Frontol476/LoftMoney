@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActionModeStarted(mode);
         actionMode = mode;
         fab.hide();
-        tabs.setBackgroundColor(ContextCompat.getColor(this,R.color.dark_grey_blue));
+        tabs.setBackgroundColor(ContextCompat.getColor(this, R.color.dark_grey_blue));
     }
 
     @Override
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSupportActionModeFinished(mode);
         actionMode = null;
         fab.show();
-        tabs.setBackgroundColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        tabs.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
     @Override

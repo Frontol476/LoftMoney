@@ -1,6 +1,8 @@
 package com.danabek.loftmoney;
 
 import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,6 +38,11 @@ public class App extends Application {
                 .build();
         api = retrofit.create(Api.class);
     }
+    public SharedPreferences getPreference(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return preferences;
+    }
+
 
     public Api getApi() {
         return api;
