@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -57,6 +56,7 @@ public class ItemsFragment extends Fragment {
     private ItemsAdapter adapter;
     private String type;
     private Api api;
+    private SharedPreferences preferences;
 
     public ItemsFragment() {
         // Required empty public constructor
@@ -71,6 +71,7 @@ public class ItemsFragment extends Fragment {
         Application application = getActivity().getApplication();
         App app = (App) application;
         api = app.getApi();
+        preferences = app.getPreference();
 
     }
 
@@ -105,7 +106,6 @@ public class ItemsFragment extends Fragment {
     }
 
     private void loadItems() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         String token = preferences.getString("auth_token", null);
 
         Call<List<ItemPosition>> call = api.getItems(type, token);
@@ -126,7 +126,6 @@ public class ItemsFragment extends Fragment {
     }
 
     private void removeItem(Long id) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         String token = preferences.getString("auth_token", null);
 
         Call<Object> call = api.removeItem(id, token);

@@ -118,7 +118,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         public void setColorItem(String type) {
 
             price.setTextColor(type.equals(ItemPosition.TYPE_INCOME) ? (ContextCompat.getColor(context, R.color.income_color))
-                                                                     : (ContextCompat.getColor(context, R.color.expense_color)));
+                    : (ContextCompat.getColor(context, R.color.expense_color)));
 
         }
 

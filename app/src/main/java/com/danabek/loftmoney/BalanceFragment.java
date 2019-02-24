@@ -3,7 +3,6 @@ package com.danabek.loftmoney;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +29,7 @@ public class BalanceFragment extends Fragment {
     private TextView expenseView;
     private TextView incomeView;
     private DiagramView diagramView;
+    private SharedPreferences preferences;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class BalanceFragment extends Fragment {
         Application application = getActivity().getApplication();
         App app = (App) application;
         api = app.getApi();
+        preferences = app.getPreference();
     }
 
     @Nullable
@@ -54,14 +55,12 @@ public class BalanceFragment extends Fragment {
         incomeView = view.findViewById(R.id.income_value);
         expenseView = view.findViewById(R.id.expense_value);
         diagramView = view.findViewById(R.id.diagram_view);
+        loadBalance();
 
     }
 
     private void loadBalance() {
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         String token = preferences.getString("auth_token", null);
-
         Call<BalanceResponse> call = api.balance(token);
         call.enqueue(new Callback<BalanceResponse>() {
             @Override
@@ -83,11 +82,4 @@ public class BalanceFragment extends Fragment {
 
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            loadBalance();
-        }
-    }
 }
