@@ -97,8 +97,8 @@ public class ItemsFragment extends Fragment {
         });
 
         //Add devider
-        RecyclerView.LayoutManager layoutManager = (new LinearLayoutManager(requireContext()));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycler.getContext(), ((LinearLayoutManager) layoutManager).getOrientation());
+        LinearLayoutManager layoutManager = (new LinearLayoutManager(requireContext()));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycler.getContext(), layoutManager.getOrientation());
         recycler.addItemDecoration(dividerItemDecoration);
 
         loadItems();
