@@ -34,7 +34,6 @@ public class BalanceFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Application application = getActivity().getApplication();
         App app = (App) application;
         api = app.getApi();
@@ -67,7 +66,6 @@ public class BalanceFragment extends Fragment {
             public void onResponse(Call<BalanceResponse> call, Response<BalanceResponse> response) {
                 BalanceResponse balanceResponse = response.body();
                 int balance = balanceResponse.getTotalIncome() - balanceResponse.getTotalExpense();
-
                 balanceView.setText(getString(R.string.balance_fragment_count, balance));
                 expenseView.setText(getString(R.string.balance_fragment_count, balanceResponse.getTotalExpense()));
                 incomeView.setText(getString(R.string.balance_fragment_count, balanceResponse.getTotalIncome()));
@@ -80,6 +78,14 @@ public class BalanceFragment extends Fragment {
             }
         });
 
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser && preferences != null) {
+            loadBalance();
+        }
     }
 
 }
